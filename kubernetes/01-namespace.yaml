@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: grocery-app
+  labels:
+    name: grocery-app
+    environment: production
