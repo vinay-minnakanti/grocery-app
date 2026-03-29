@@ -70,3 +70,5 @@ spec:
                 type: object
               data:
                 type: array
+                items:
+                  type: object
