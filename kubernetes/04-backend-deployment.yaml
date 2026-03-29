@@ -28,7 +28,7 @@ spec:
 
       containers:
         - name: backend
-          image: YOUR_DOCKER_HUB_USERNAME/grocery-backend:latest
+          image: vinaybabuminnakanti/grocery-backend:v1
           imagePullPolicy: Always
           
           ports:
