@@ -1,0 +1,72 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: secretstores.external-secrets.io
+spec:
+  group: external-secrets.io
+  names:
+    kind: SecretStore
+    listKind: SecretStoreList
+    plural: secretstores
+    singular: secretstore
+  scope: Namespaced
+  versions:
+  - name: v1beta1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        description: SecretStore represents a secure external location for storing secrets
+        type: object
+        properties:
+          apiVersion:
+            type: string
+          kind:
+            type: string
+          metadata:
+            type: object
+          spec:
+            type: object
+            properties:
+              provider:
+                type: object
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: externalsecrets.external-secrets.io
+spec:
+  group: external-secrets.io
+  names:
+    kind: ExternalSecret
+    listKind: ExternalSecretList
+    plural: externalsecrets
+    singular: externalsecret
+  scope: Namespaced
+  versions:
+  - name: v1beta1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        description: ExternalSecret describes why a secret should be refreshed from an external API
+        type: object
+        properties:
+          apiVersion:
+            type: string
+          kind:
+            type: string
+          metadata:
+            type: object
+          spec:
+            type: object
+            properties:
+              refreshInterval:
+                type: string
+              secretStoreRef:
+                type: object
+              target:
+                type: object
+              data:
+                type: array
