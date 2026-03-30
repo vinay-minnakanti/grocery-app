@@ -17,8 +17,7 @@ metadata:
     alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
 spec:
   rules:
-    - host: "grocery.example.com"  # Replace with your domain
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
